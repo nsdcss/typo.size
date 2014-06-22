@@ -1,0 +1,69 @@
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+
+// Variables used in this file
+// Please note: these variables are probably overwritten in your variables.less file
+@t__h1-size:		    32;
+@t__h2-size:	        26;
+@t__h3-size:           	22;
+@t__h4-size:   			18;
+@t__h5-size:		   	14;
+@t__h6-size:		    14;
+
+@t__micro-size:         12px;
+@t__milli-size:         12px;
+
+@t__giga-size:			120;
+@t__mega-size:			80;
+@t__kilo-size:			50;
+
+.set-modified-font-sizes(@bpClass: ~'') {
+
+	.@{cf__framework-prefix}micro@{bpClass}{
+		.font-size(@t__micro-size);
+	}
+	.@{cf__framework-prefix}milli@{bpClass}{
+		.font-size(@t__milli-size);
+	}
+	.@{cf__framework-prefix}alpha@{bpClass}{
+		.font-size(@t__h1-size);
+	}
+	.@{cf__framework-prefix}beta@{bpClass}{
+		.font-size(@t__h2-size);
+	}
+	.@{cf__framework-prefix}gamma@{bpClass}{
+		.font-size(@t__h3-size);
+	}
+	.@{cf__framework-prefix}delta@{bpClass}{
+		.font-size(@t__h4-size);
+	}
+	.@{cf__framework-prefix}epsilon@{bpClass}{
+		.font-size(@t__h5-size);
+	}
+	.@{cf__framework-prefix}zeta@{bpClass}{
+		.font-size(@t__h6-size);
+	}
+	.@{cf__framework-prefix}giga@{bpClass}{
+		.font-size(@t__giga-size);
+	}
+	.@{cf__framework-prefix}mega@{bpClass}{
+		.font-size(@t__mega-size);
+	}
+	.@{cf__framework-prefix}kilo@{bpClass}{
+		.font-size(@t__kilo-size);
+	}
+}
+
+.make-responsive-font-sizes(@counter) when (@counter > 0) {
+	.make-responsive-font-sizes((@counter - 1)); // next iteration
+	@cur-list: extract(@bp__bp-list, @counter);
+	@breakpoint-name:  extract(@cur-list, 1);
+	@breakpoint-width:  extract(@cur-list, 2);
+	@media only screen and (min-width:~"@{breakpoint-width}px") {
+		.set-modified-font-sizes(~"--@{breakpoint-name}");
+	}
+}
+
+.set-modified-font-sizes();
+.make-responsive-font-sizes(length(@bp__bp-list));

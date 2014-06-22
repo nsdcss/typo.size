@@ -1,0 +1,10 @@
+{
+  "name": "nsdcss-typo-size",
+  "version": "0.1.0",
+  "main": "typo.size.less",
+  "author": "Nikolaj Sokolowski",
+  "license": "MIT",
+  "dependencies": {
+    "nsdcss-core-variables": "https://github.com/nsdcss/core.variables.git",
+  }
+}
