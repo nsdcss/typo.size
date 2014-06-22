@@ -6,5 +6,6 @@
   "license": "MIT",
   "dependencies": {
     "nsdcss-core-variables": "https://github.com/nsdcss/core.variables.git",
+    "nsdcss-core-mixins": "https://github.com/nsdcss/core.mixins.git"
   }
 }
